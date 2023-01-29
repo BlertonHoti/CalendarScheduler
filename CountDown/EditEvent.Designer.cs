@@ -51,21 +51,23 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.label2.ForeColor = System.Drawing.Color.Teal;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(90, 154);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 21);
+            this.label2.Size = new System.Drawing.Size(46, 21);
             this.label2.TabIndex = 30;
             this.label2.Text = "Time";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.Teal;
-            this.label1.Location = new System.Drawing.Point(230, 181);
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(218, 184);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(28, 21);
+            this.label1.Size = new System.Drawing.Size(31, 21);
             this.label1.TabIndex = 29;
             this.label1.Text = "To:";
             // 
@@ -88,9 +90,9 @@
             "10:00",
             "11:00",
             "12:00"});
-            this.EndingTime.Location = new System.Drawing.Point(259, 178);
+            this.EndingTime.Location = new System.Drawing.Point(248, 181);
             this.EndingTime.Name = "EndingTime";
-            this.EndingTime.Size = new System.Drawing.Size(82, 29);
+            this.EndingTime.Size = new System.Drawing.Size(93, 29);
             this.EndingTime.TabIndex = 28;
             // 
             // AmOrPm
@@ -101,7 +103,7 @@
             this.AmOrPm.Items.AddRange(new object[] {
             "PM",
             "AM"});
-            this.AmOrPm.Location = new System.Drawing.Point(163, 178);
+            this.AmOrPm.Location = new System.Drawing.Point(150, 181);
             this.AmOrPm.Name = "AmOrPm";
             this.AmOrPm.Size = new System.Drawing.Size(66, 29);
             this.AmOrPm.TabIndex = 27;
@@ -125,9 +127,9 @@
             "9:00",
             "10:00",
             "11:00"});
-            this.StartingTime.Location = new System.Drawing.Point(86, 178);
+            this.StartingTime.Location = new System.Drawing.Point(86, 181);
             this.StartingTime.Name = "StartingTime";
-            this.StartingTime.Size = new System.Drawing.Size(71, 29);
+            this.StartingTime.Size = new System.Drawing.Size(58, 29);
             this.StartingTime.TabIndex = 26;
             this.StartingTime.SelectedIndexChanged += new System.EventHandler(this.StartingTime_SelectedIndexChanged);
             // 
@@ -183,7 +185,8 @@
             // 
             // saveBtn
             // 
-            this.saveBtn.ForeColor = System.Drawing.Color.Teal;
+            this.saveBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.saveBtn.ForeColor = System.Drawing.Color.Black;
             this.saveBtn.Location = new System.Drawing.Point(204, 226);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(137, 31);
@@ -195,22 +198,24 @@
             // eventLbl
             // 
             this.eventLbl.AutoSize = true;
-            this.eventLbl.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.eventLbl.ForeColor = System.Drawing.Color.Teal;
+            this.eventLbl.BackColor = System.Drawing.Color.Transparent;
+            this.eventLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.eventLbl.ForeColor = System.Drawing.Color.White;
             this.eventLbl.Location = new System.Drawing.Point(90, 90);
             this.eventLbl.Name = "eventLbl";
-            this.eventLbl.Size = new System.Drawing.Size(48, 21);
+            this.eventLbl.Size = new System.Drawing.Size(50, 21);
             this.eventLbl.TabIndex = 23;
             this.eventLbl.Text = "Event";
             // 
             // dateLbl
             // 
             this.dateLbl.AutoSize = true;
-            this.dateLbl.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dateLbl.ForeColor = System.Drawing.Color.Teal;
+            this.dateLbl.BackColor = System.Drawing.Color.Transparent;
+            this.dateLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateLbl.ForeColor = System.Drawing.Color.White;
             this.dateLbl.Location = new System.Drawing.Point(93, 34);
             this.dateLbl.Name = "dateLbl";
-            this.dateLbl.Size = new System.Drawing.Size(42, 21);
+            this.dateLbl.Size = new System.Drawing.Size(44, 21);
             this.dateLbl.TabIndex = 22;
             this.dateLbl.Text = "Date";
             // 
