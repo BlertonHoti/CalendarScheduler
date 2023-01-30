@@ -31,7 +31,7 @@ namespace CountDown
             StartingTime.SelectedIndex = 0;
             AmOrPm.SelectedIndex = 0;
             UpdateCombobox();
-            EndingTime.SelectedIndex = -1;
+            EndingTime.SelectedIndex = 0;
         }
       
         private void saveBtn_Click(object sender, EventArgs e)
@@ -858,6 +858,7 @@ namespace CountDown
         }
         private void StartingTime_SelectedIndexChanged(object sender, EventArgs e)
         {
+            EndingTime.SelectedIndex = 0;
             if (StartingTime.SelectedIndex == 0)
             {
                 if (AmOrPm.SelectedIndex == 0)
@@ -1653,6 +1654,7 @@ namespace CountDown
         private void AmOrPm_SelectedIndexChanged(object sender, EventArgs e)
         {
             UpdateCombobox();
+            EndingTime.SelectedIndex = 0;
         }
     }
 }

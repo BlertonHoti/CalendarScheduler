@@ -27,6 +27,7 @@ namespace CountDown
 
         private void EditEvent_Load(object sender, EventArgs e)
         {
+            
             ShowTheData();
         }
         public void ShowTheData()
@@ -55,8 +56,8 @@ namespace CountDown
                     {
                         StartingTime.SelectedIndex = TempStartingTime;
                         AmOrPm.SelectedIndex = TempAmOrPmTime;
-                        UpdateCombobox();
                         EndingTime.SelectedIndex = 0;
+                        UpdateCombobox();
                     }
                 }
                 reader.Dispose();
@@ -848,6 +849,7 @@ namespace CountDown
 
         private void StartingTime_SelectedIndexChanged(object sender, EventArgs e)
         {
+            EndingTime.SelectedIndex = 0;
             if (StartingTime.SelectedIndex == 0)
             {
                 if (AmOrPm.SelectedIndex == 0)
@@ -1622,11 +1624,12 @@ namespace CountDown
         private void AmOrPm_SelectedIndexChanged(object sender, EventArgs e)
         {
             UpdateCombobox();
+            EndingTime.SelectedIndex = 0;
         }
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
-            if(eventTxt.Text != "" || dateTxt.Text != "" || StartingTime.SelectedIndex != -1 || AmOrPm.SelectedIndex != -1 || EndingTime.SelectedIndex != -1 || Event.getEventName != "")
+            if(eventTxt.Text != "" || dateTxt.Text != "" || StartingTime.SelectedIndex != -1 || AmOrPm.SelectedIndex != -1 || EndingTime.SelectedIndex != -1 || Event.getEventName != "" || EndingTime.SelectedItem == null)
             {
                 DialogResult result = MessageBox.Show("Are you sure you wanna make this changes?", "Confirm", MessageBoxButtons.YesNo);
                 if(result == DialogResult.Yes)
@@ -1635,6 +1638,10 @@ namespace CountDown
 
                     Command = new SqlCommand("UPDATE tbl_calendar SET event = @event2, date = @date, StartingTime = @value1, AmOrPmTime = @value2, EndingTime = @value3 WHERE event = @event1", Con);
 
+                    if(EndingTime.SelectedItem == null)
+                    {
+                        EndingTime.SelectedIndex = 0; 
+                    }
                     Command.Parameters.AddWithValue("@event1", Event.getEventName);
                     Command.Parameters.AddWithValue("@event2", eventTxt.Text);
                     Command.Parameters.AddWithValue("@date", dateTxt.Text);
@@ -1652,7 +1659,7 @@ namespace CountDown
             }
             else
             {
-                MessageBox.Show("Something Went Wrong!");
+                MessageBox.Show("Missing Data!");
                 UserControlDays temp = new UserControlDays();
                 temp.ShowEvent();
             }
