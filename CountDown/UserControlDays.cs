@@ -44,7 +44,6 @@ namespace CountDown
             EventFrom eventform = new EventFrom();
             eventform.Show();
             timer1.Start();
-
         }
         public void displayEvent(string days)
         {
@@ -71,7 +70,15 @@ namespace CountDown
         
         private void timer1_Tick(object sender, EventArgs e)
         {
-            displayEvent(lbDays.Text);
+            try
+            {
+                displayEvent(lbDays.Text);
+            }
+            catch
+            {
+                timer1.Stop();
+            }
+
         }
         private void lblEvent_Click(object sender, EventArgs e)
         {

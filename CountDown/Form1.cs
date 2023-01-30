@@ -147,8 +147,9 @@ namespace CountDown
             {
                 MessageBox.Show("You cannot add events in more than a month in past!!");
                 Form1 theForm = new Form1();
-                theForm.Show();
                 this.Hide();
+                theForm.Show();
+                
             }
             
         }

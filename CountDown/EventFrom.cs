@@ -53,6 +53,7 @@ namespace CountDown
                     MessageBox.Show("Event Added!");
                     UserControlDays temp = new UserControlDays();
                     temp.ShowEvent();
+                    temp.displayEvent(UserControlDays.static_day);
                     this.Close();
                 }
             }
