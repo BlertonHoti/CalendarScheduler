@@ -80,6 +80,7 @@
             this.Controls.Add(this.EventName);
             this.Name = "Event";
             this.Size = new System.Drawing.Size(183, 37);
+            this.Load += new System.EventHandler(this.Event_Load);
             this.Click += new System.EventHandler(this.Event_Click);
             this.Leave += new System.EventHandler(this.Event_Leave);
             this.ResumeLayout(false);

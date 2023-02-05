@@ -120,10 +120,8 @@ namespace CountDown
 
                 if (month < now.Month && year == now.Year)
                 {
-                    Form1 theForm = new Form1();
-                    this.Hide();
-                    theForm.Show();
                     MessageBox.Show("You cannot see date or add events in more than a month in past!!");
+                    DisplayDays();
                 }
                 else
                 {
@@ -158,12 +156,12 @@ namespace CountDown
                 }
                 
             }
-            catch (ArgumentOutOfRangeException)
+            catch (Exception ex)
             {
                 Form1 theForm = new Form1();
                 this.Hide();
                 theForm.Show();
-                MessageBox.Show("You cannot see date or add events in more than a month in past!!");
+                MessageBox.Show(ex.ToString());
             }
             
         }

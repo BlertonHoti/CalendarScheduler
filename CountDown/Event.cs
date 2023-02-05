@@ -28,7 +28,7 @@ namespace CountDown
         }
         private void EventName_Click(object sender, EventArgs e)
         {
-            this.BorderStyle = BorderStyle.Fixed3D;
+            this.BorderStyle = BorderStyle.FixedSingle;
             this.Focus();
             getEventName = this.EventName.Text;
             SelectDesign.BackColor = Color.Aqua;
@@ -41,7 +41,7 @@ namespace CountDown
 
         private void Event_Click(object sender, EventArgs e)
         {
-            this.BorderStyle = BorderStyle.Fixed3D;
+            this.BorderStyle = BorderStyle.FixedSingle;
             this.Focus();
             SelectDesign.BackColor = Color.Aqua;
             getEventName = this.EventName.Text;
@@ -55,7 +55,7 @@ namespace CountDown
 
         private void TimeLbl_Click(object sender, EventArgs e)
         {
-            this.BorderStyle = BorderStyle.Fixed3D;
+            this.BorderStyle = BorderStyle.FixedSingle;
             this.Focus();
             getEventName = this.EventName.Text;
             SelectDesign.BackColor = Color.Aqua;
@@ -71,6 +71,11 @@ namespace CountDown
         {
             this.BorderStyle = BorderStyle.None;
             SelectDesign.BackColor = Color.Transparent;
+        }
+
+        private void Event_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

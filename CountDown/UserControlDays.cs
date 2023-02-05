@@ -21,17 +21,28 @@ namespace CountDown
         private SqlCommand Command;
         string conString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\blert\\OneDrive\\Documents\\db_calendar.mdf;Integrated Security=True;Connect Timeout=30";
 
+        Form1 formTemp;
         ToolTip t1 = new ToolTip();
 
-        
+        DateTime now = DateTime.Now;
         public UserControlDays()
         {
             InitializeComponent();
+            formTemp = new Form1();
         }
 
         private void UserControlDays_Load(object sender, EventArgs e)
         {
             displayEvent(lbDays.Text);
+
+            
+            if(int.Parse(lbDays.Text) == now.Day && Form1.static_month == now.Month && Form1.static_year == now.Year)
+            {
+                this.BorderStyle = BorderStyle.FixedSingle;
+                this.BackColor = Color.Teal;
+                lbDays.ForeColor = Color.White;
+                lblEvent.ForeColor = Color.Aqua;
+            }
         }
 
         public void days(int numDay)
@@ -48,6 +59,7 @@ namespace CountDown
         }
         public void displayEvent(string days)
         {
+            counter = 0;
             Con = new SqlConnection(conString);
             Con.Open();
             string Query = "SELECT * FROM tbl_calendar where date = @date";
@@ -55,18 +67,20 @@ namespace CountDown
             Command.CommandText = Query;
             Command.Parameters.AddWithValue("@date", (Form1.static_year + "-" + Form1.static_month + "-" + days).ToString());
             SqlDataReader reader = Command.ExecuteReader();
-            counter = 0;
             while(reader.Read())    
             {
                 counter++;
                 lblEvent.Text = counter.ToString();
             }
-            counter = 0;
+            if(counter == 0)
+            {
+                lblEvent.Text = "";
+                counter = 0;
+            }
             reader.Close();
             reader.Dispose();
             Command.Dispose();
             Con.Close();
-            
         }
         
         
@@ -91,7 +105,12 @@ namespace CountDown
                 eventform.Show();
                 timer1.Start();
             }
+            else
+            {
+                timer1.Start();
+            }
             ShowEvent();
+
         }
         public void ShowEvent()
         {
@@ -141,8 +160,15 @@ namespace CountDown
             if(lblEvent.Text != "")
             {
                 t1.Show("Show Events", lblEvent);
-                lblEvent.ForeColor = Color.Teal;
                 lblEvent.Font = new Font(lblEvent.Font.Name, lblEvent.Font.Size + 6);
+                if (int.Parse(this.lbDays.Text) == now.Day && Form1.static_month == now.Month && Form1.static_year == now.Year)
+                {
+                    lblEvent.ForeColor = Color.Aqua;
+                }
+                else
+                {
+                    lblEvent.ForeColor = Color.Teal;
+                }
             }
             else
             {
@@ -156,14 +182,32 @@ namespace CountDown
         {
             if(lblEvent.Text != "")
             {
-                lblEvent.ForeColor = Color.SeaGreen;
-                lblEvent.BackColor = Color.Transparent;
-                lblEvent.Font = new Font(lblEvent.Font.Name, 12);
+                if (int.Parse(this.lbDays.Text) == now.Day && Form1.static_month == now.Month && Form1.static_year == now.Year)
+                {
+                    this.lblEvent.ForeColor = Color.Aqua;
+                    lblEvent.Font = new Font(lblEvent.Font.Name, 12);
+                }
+                else
+                {
+                    lblEvent.ForeColor = Color.SeaGreen;
+                    lblEvent.Font = new Font(lblEvent.Font.Name, 12);
+                }
+                
             }
             else
             {
-                this.BackColor = Color.LightGray;
-                lbDays.ForeColor = Color.DimGray;
+                if (int.Parse(this.lbDays.Text) == now.Day && Form1.static_month == now.Month && Form1.static_year == now.Year)
+                {
+                    this.BackColor = Color.Teal;
+                    this.lbDays.ForeColor = Color.White;
+                    this.lblEvent.ForeColor = Color.Aqua;
+                }
+                else
+                {
+                    this.BackColor = Color.LightGray;
+                    lbDays.ForeColor = Color.DimGray;
+                    this.lblEvent.ForeColor = Color.SeaGreen;
+                }
             }
             
         }
@@ -178,9 +222,18 @@ namespace CountDown
 
         private void UserControlDays_MouseLeave(object sender, EventArgs e)
         {
-            this.BackColor = Color.LightGray;
-            lbDays.ForeColor = Color.DimGray;
-            lblEvent.ForeColor = Color.SeaGreen;
+            if (int.Parse(this.lbDays.Text) == now.Day && Form1.static_month == now.Month && Form1.static_year == now.Year)
+            {
+                this.BackColor = Color.Teal;
+                this.lbDays.ForeColor = Color.White;
+                this.lblEvent.ForeColor = Color.Aqua;
+            }
+            else
+            {
+                this.BackColor = Color.LightGray;
+                lbDays.ForeColor = Color.DimGray;
+                lblEvent.ForeColor = Color.SeaGreen;
+            }
         }
         
         private void UserControlDays_MouseEnter(object sender, EventArgs e)
