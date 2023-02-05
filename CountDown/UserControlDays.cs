@@ -33,6 +33,7 @@ namespace CountDown
         {
             displayEvent(lbDays.Text);
         }
+
         public void days(int numDay)
         {
             lbDays.Text = numDay + "";
@@ -61,6 +62,7 @@ namespace CountDown
                 lblEvent.Text = counter.ToString();
             }
             counter = 0;
+            reader.Close();
             reader.Dispose();
             Command.Dispose();
             Con.Close();
@@ -130,6 +132,7 @@ namespace CountDown
                 
             }
             reader.Dispose();
+            reader.Close();
             Command.Dispose();
             Con.Close();
         }

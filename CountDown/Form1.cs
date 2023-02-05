@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Management.Instrumentation;
 using System.Text;
 using System.Threading.Tasks;
@@ -45,7 +46,7 @@ namespace CountDown
 
         private SqlConnection Con;
         private SqlCommand Command;
-        string conString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\blert\\OneDrive\\Documents\\db_calendar.mdf;Integrated Security=True;Connect Timeout=30";
+        string conString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\blert\\OneDrive\\Documents\\db_calendar.mdf;Integrated Security=True;Connect Timeout=30;MultipleActiveResultSets=true";
 
         int month, year;
         public static int static_month, static_year;
@@ -59,6 +60,7 @@ namespace CountDown
         {
             DisplayDays();
             obj = this;
+            AutoDataDelete();
         }
         public void DisplayDays()
         {
@@ -111,45 +113,57 @@ namespace CountDown
             {
                 DateTime now = DateTime.Now;
                 int tempYear = now.Year;
-                if (year > tempYear && month == 1)
-                {
-                    month = 12;
-                    year--;
-                }
+
                 dayContainer.Controls.Clear();
                 month--;
+                
 
-                static_month = month;
-                static_year = year;
-
-                string MonthName = DateTimeFormatInfo.CurrentInfo.GetMonthName(month);
-                lblDate.Text = MonthName + "  " + year;
-
-
-                DateTime startOfMonth = new DateTime(year, month, 1);
-                int days = DateTime.DaysInMonth(year, month);
-                int daysOfTheWeek = Convert.ToInt32(startOfMonth.DayOfWeek.ToString("d")) + 1;
-
-                for (int i = 1; i < daysOfTheWeek; i++)
+                if (month < now.Month && year == now.Year)
                 {
-                    UserControlBlank ucBlank = new UserControlBlank();
-                    dayContainer.Controls.Add(ucBlank);
+                    Form1 theForm = new Form1();
+                    this.Hide();
+                    theForm.Show();
+                    MessageBox.Show("You cannot see date or add events in more than a month in past!!");
                 }
-
-                for (int i = 1; i <= days; i++)
+                else
                 {
-                    UserControlDays ucDays = new UserControlDays();
-                    ucDays.days(i);
-                    dayContainer.Controls.Add(ucDays);
+                    if (year > tempYear && month < 1)
+                    {
+                        month = 12;
+                        year--;
+                    }
+                    static_month = month;
+                    static_year = year;
+
+                    string MonthName = DateTimeFormatInfo.CurrentInfo.GetMonthName(month);
+                    lblDate.Text = MonthName + "  " + year;
+
+
+                    DateTime startOfMonth = new DateTime(year, month, 1);
+                    int days = DateTime.DaysInMonth(year, month);
+                    int daysOfTheWeek = Convert.ToInt32(startOfMonth.DayOfWeek.ToString("d")) + 1;
+
+                    for (int i = 1; i < daysOfTheWeek; i++)
+                    {
+                        UserControlBlank ucBlank = new UserControlBlank();
+                        dayContainer.Controls.Add(ucBlank);
+                    }
+
+                    for (int i = 1; i <= days; i++)
+                    {
+                        UserControlDays ucDays = new UserControlDays();
+                        ucDays.days(i);
+                        dayContainer.Controls.Add(ucDays);
+                    }
                 }
+                
             }
-            catch (ArgumentOutOfRangeException ex)
+            catch (ArgumentOutOfRangeException)
             {
-                MessageBox.Show("You cannot add events in more than a month in past!!");
                 Form1 theForm = new Form1();
                 this.Hide();
                 theForm.Show();
-                
+                MessageBox.Show("You cannot see date or add events in more than a month in past!!");
             }
             
         }
@@ -244,14 +258,14 @@ namespace CountDown
 
         private void nextBtn_Click(object sender, EventArgs e)
         {
-            if(month == 12)
+            
+            dayContainer.Controls.Clear();
+            month++;
+            if (month > 12)
             {
                 month = 1;
                 year++;
             }
-            dayContainer.Controls.Clear();
-            month++;
-
             static_month = month;
             static_year = year;
 
@@ -278,9 +292,41 @@ namespace CountDown
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
-        }
 
-       
+        }
+        public void AutoDataDelete()
+        {
+            using (SqlConnection connection = new SqlConnection(conString))
+            {
+                DateTime now = DateTime.Now;
+                connection.Open();
+                int thresholdMonth = now.Month;
+                string query = "SELECT Id, date FROM tbl_calendar WHERE MONTH(date) < @thresholdMonth";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@thresholdMonth", thresholdMonth);
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        try
+                        {
+                            while (reader.Read())
+                            {
+                                int id = Convert.ToInt32(reader["Id"]);
+                                string deleteQuery = "DELETE FROM tbl_calendar WHERE Id = @id";
+                                using (SqlCommand deleteCommand = new SqlCommand(deleteQuery, connection))
+                                {
+                                    deleteCommand.Parameters.AddWithValue("@id", id);
+                                    deleteCommand.ExecuteNonQuery();
+                                }
+                            }
+                        }
+                        finally
+                        {
+                            reader.Close();
+                        }
+                    }
+                }
+            }
+        }
     }
 }
