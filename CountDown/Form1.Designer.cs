@@ -37,7 +37,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.CalculatorContainer = new System.Windows.Forms.Panel();
@@ -47,8 +46,11 @@
             this.RadiusCalculatorContainer = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.RadiusCloseBtn = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.TopHeader = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label10 = new System.Windows.Forms.Label();
             this.LogoContainer = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.SelectedEvents = new System.Windows.Forms.Panel();
             this.DelEventBtn = new System.Windows.Forms.Button();
             this.EditEventBtn = new System.Windows.Forms.Button();
@@ -58,18 +60,15 @@
             this.label9 = new System.Windows.Forms.Label();
             this.RadiusEventContainer = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.LogoContainerRadius = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.CalculatorContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nextBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.previousBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CloseBtn)).BeginInit();
             this.TopHeader.SuspendLayout();
-            this.LogoContainer.SuspendLayout();
-            this.SelectedEvents.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.LogoContainer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.SelectedEvents.SuspendLayout();
             this.SuspendLayout();
             // 
             // dayContainer
@@ -152,17 +151,6 @@
             this.label6.TabIndex = 8;
             this.label6.Text = "Fri";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.label7.ForeColor = System.Drawing.Color.Teal;
-            this.label7.Location = new System.Drawing.Point(1150, 74);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(72, 21);
-            this.label7.TabIndex = 9;
-            this.label7.Text = "Saturday";
             // 
             // lblDate
             // 
@@ -272,6 +260,16 @@
             this.TopHeader.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TopHeader_MouseMove);
             this.TopHeader.MouseUp += new System.Windows.Forms.MouseEventHandler(this.TopHeader_MouseUp);
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(69, 27);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
+            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -291,6 +289,28 @@
             this.LogoContainer.Name = "LogoContainer";
             this.LogoContainer.Size = new System.Drawing.Size(304, 154);
             this.LogoContainer.TabIndex = 14;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label11.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.Teal;
+            this.label11.Location = new System.Drawing.Point(59, 111);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(177, 25);
+            this.label11.TabIndex = 14;
+            this.label11.Text = "Calendar Scheduler";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(60, 27);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(176, 81);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // SelectedEvents
             // 
@@ -382,38 +402,6 @@
             this.LogoContainerRadius.BorderRadius = 12;
             this.LogoContainerRadius.TargetControl = this.LogoContainer;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(60, 27);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(176, 81);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(69, 27);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.label11.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.Teal;
-            this.label11.Location = new System.Drawing.Point(59, 111);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(177, 25);
-            this.label11.TabIndex = 14;
-            this.label11.Text = "Calendar Scheduler";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -424,7 +412,6 @@
             this.Controls.Add(this.LogoContainer);
             this.Controls.Add(this.TopHeader);
             this.Controls.Add(this.CalculatorContainer);
-            this.Controls.Add(this.label7);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -439,14 +426,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.CloseBtn)).EndInit();
             this.TopHeader.ResumeLayout(false);
             this.TopHeader.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.LogoContainer.ResumeLayout(false);
             this.LogoContainer.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.SelectedEvents.ResumeLayout(false);
             this.SelectedEvents.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -459,7 +445,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel CalculatorContainer;
