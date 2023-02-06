@@ -49,6 +49,7 @@
             this.Controls.Add(this.MonthNameTxt);
             this.Name = "UserControlMonths";
             this.Size = new System.Drawing.Size(119, 61);
+            this.Click += new System.EventHandler(this.UserControlMonths_Click);
             this.ResumeLayout(false);
 
         }

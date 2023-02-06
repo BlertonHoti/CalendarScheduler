@@ -155,6 +155,7 @@
             // lblDate
             // 
             this.lblDate.BackColor = System.Drawing.Color.Transparent;
+            this.lblDate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblDate.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDate.ForeColor = System.Drawing.Color.Teal;
             this.lblDate.Location = new System.Drawing.Point(294, 11);
@@ -163,6 +164,9 @@
             this.lblDate.TabIndex = 10;
             this.lblDate.Text = "MONTH YEAR";
             this.lblDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblDate.Click += new System.EventHandler(this.lblDate_Click);
+            this.lblDate.MouseLeave += new System.EventHandler(this.lblDate_MouseLeave);
+            this.lblDate.MouseHover += new System.EventHandler(this.lblDate_MouseHover);
             // 
             // label8
             // 

@@ -89,7 +89,38 @@ namespace CountDown
                 dayContainer.Controls.Add(ucDays);
             }
         }
+        public void DisplayCostumDays(int monthTemp, int yearTemp)
+        {
+            DateTime now = DateTime.Now;
 
+            month = monthTemp;
+            year = yearTemp;
+
+            dayContainer.Controls.Clear();
+            string MonthName = DateTimeFormatInfo.CurrentInfo.GetMonthName(month);
+            lblDate.Text = MonthName + "  " + year;
+
+            
+
+            static_month = month;
+            static_year = year;
+
+            DateTime startOfMonth = new DateTime(year, month, 1);
+            int days = DateTime.DaysInMonth(year, month);
+            int daysOfTheWeek = Convert.ToInt32(startOfMonth.DayOfWeek.ToString("d")) + 1;
+
+            for (int i = 1; i < daysOfTheWeek; i++)
+            {
+                UserControlBlank ucBlank = new UserControlBlank();
+                dayContainer.Controls.Add(ucBlank);
+            }
+            for (int i = 1; i <= days; i++)
+            {
+                UserControlDays ucDays = new UserControlDays();
+                ucDays.days(i);
+                dayContainer.Controls.Add(ucDays);
+            }
+        }
         
 
         private void CloseBtn_Click(object sender, EventArgs e)
@@ -286,6 +317,23 @@ namespace CountDown
                 ucDays.days(i);
                 dayContainer.Controls.Add(ucDays);
             }
+        }
+
+        private void lblDate_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            MonthsOnly monthonly = new MonthsOnly();
+            monthonly.Show();
+        }
+
+        private void lblDate_MouseHover(object sender, EventArgs e)
+        {
+            lblDate.BackColor = SystemColors.Control;
+        }
+
+        private void lblDate_MouseLeave(object sender, EventArgs e)
+        {
+            lblDate.BackColor = Color.Transparent;
         }
 
         private void button2_Click(object sender, EventArgs e)

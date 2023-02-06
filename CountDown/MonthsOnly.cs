@@ -16,6 +16,7 @@ namespace CountDown
     public partial class MonthsOnly : Form
     {
         int month, year;
+        public static int static_month, static_year;
         public MonthsOnly()
         {
             InitializeComponent();
@@ -26,7 +27,8 @@ namespace CountDown
             month = now.Month;
             year = now.Year;
             lblDate.Text = year.ToString();
-            
+            static_month = month;
+            static_year = year;
 
             for (int i = month; i <= 12; i++)
             {
@@ -49,7 +51,9 @@ namespace CountDown
             MonthContainer.Controls.Clear();
             month = 1;
             year++;
-            
+            static_month = month;
+            static_year = year;
+
             lblDate.Text = year.ToString();
 
             for (int i = month; i <= 12; i++)
@@ -69,6 +73,8 @@ namespace CountDown
             {
                 month = 1;
                 year--;
+                static_month = month;
+                static_year = year;
 
                 lblDate.Text = year.ToString();
 
