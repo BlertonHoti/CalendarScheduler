@@ -321,9 +321,9 @@ namespace CountDown
 
         private void lblDate_Click(object sender, EventArgs e)
         {
-            this.Hide();
             MonthsOnly monthonly = new MonthsOnly();
             monthonly.Show();
+            this.Hide();
         }
 
         private void lblDate_MouseHover(object sender, EventArgs e)

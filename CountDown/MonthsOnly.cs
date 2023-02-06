@@ -65,6 +65,23 @@ namespace CountDown
             }
         }
 
+        private void lblDate_Click(object sender, EventArgs e)
+        {
+            Form1 form1 = new Form1();
+            form1.Show();
+            this.Close();
+        }
+
+        private void lblDate_MouseHover(object sender, EventArgs e)
+        {
+            lblDate.BackColor = SystemColors.Control;
+        }
+
+        private void lblDate_MouseLeave(object sender, EventArgs e)
+        {
+            lblDate.BackColor = Color.Transparent;
+        }
+
         private void previousBtn_Click(object sender, EventArgs e)
         {
             DateTime now = DateTime.Now;
@@ -97,6 +114,9 @@ namespace CountDown
         private void CloseBtn_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+        public void ApplicationClose()
+        {
         }
     }
 }

@@ -13,6 +13,7 @@ namespace CountDown
 {
     public partial class UserControlMonths : UserControl
     {
+        
         public UserControlMonths()
         {
             InitializeComponent();
@@ -27,10 +28,52 @@ namespace CountDown
             DateTime TheDate = DateTime.ParseExact(this.MonthNameTxt.Text, "MMMM", CultureInfo.InvariantCulture);
             int TheMonth = TheDate.Month;
             int Theyear = MonthsOnly.static_year;
-            this.Hide();
+
+            this.Parent.Parent.Parent.Hide();
+            Form1 frm = new Form1();  
+            frm.Show();
+            frm.DisplayCostumDays(TheMonth, Theyear);
+        }
+
+        private void UserControlMonths_MouseHover(object sender, EventArgs e)
+        {
+            this.BackColor = Color.DimGray;
+            MonthNameTxt.ForeColor = Color.White;
+        }
+
+        private void UserControlMonths_MouseLeave(object sender, EventArgs e)
+        {
+            this.BackColor = Color.LightGray;
+            MonthNameTxt.ForeColor = Color.DimGray;
+        }
+
+        private void MonthNameTxt_Click(object sender, EventArgs e)
+        {
+            DateTime TheDate = DateTime.ParseExact(this.MonthNameTxt.Text, "MMMM", CultureInfo.InvariantCulture);
+            int TheMonth = TheDate.Month;
+            int Theyear = MonthsOnly.static_year;
+
+            this.Parent.Parent.Parent.Hide();
             Form1 frm = new Form1();
             frm.Show();
             frm.DisplayCostumDays(TheMonth, Theyear);
+        }
+
+        private void MonthNameTxt_MouseHover(object sender, EventArgs e)
+        {
+            this.BackColor = Color.DimGray;
+            MonthNameTxt.ForeColor = Color.White;
+        }
+
+        private void MonthNameTxt_MouseLeave(object sender, EventArgs e)
+        {
+            this.BackColor = Color.LightGray;
+            MonthNameTxt.ForeColor = Color.DimGray;
+        }
+
+        private void UserControlMonths_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }

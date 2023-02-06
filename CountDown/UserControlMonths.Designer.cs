@@ -33,6 +33,7 @@
             // 
             // MonthNameTxt
             // 
+            this.MonthNameTxt.Cursor = System.Windows.Forms.Cursors.Hand;
             this.MonthNameTxt.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MonthNameTxt.ForeColor = System.Drawing.Color.DimGray;
             this.MonthNameTxt.Location = new System.Drawing.Point(3, 19);
@@ -40,6 +41,9 @@
             this.MonthNameTxt.Size = new System.Drawing.Size(113, 23);
             this.MonthNameTxt.TabIndex = 0;
             this.MonthNameTxt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.MonthNameTxt.Click += new System.EventHandler(this.MonthNameTxt_Click);
+            this.MonthNameTxt.MouseLeave += new System.EventHandler(this.MonthNameTxt_MouseLeave);
+            this.MonthNameTxt.MouseHover += new System.EventHandler(this.MonthNameTxt_MouseHover);
             // 
             // UserControlMonths
             // 
@@ -47,9 +51,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
             this.Controls.Add(this.MonthNameTxt);
+            this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Name = "UserControlMonths";
             this.Size = new System.Drawing.Size(119, 61);
+            this.Load += new System.EventHandler(this.UserControlMonths_Load);
             this.Click += new System.EventHandler(this.UserControlMonths_Click);
+            this.MouseLeave += new System.EventHandler(this.UserControlMonths_MouseLeave);
+            this.MouseHover += new System.EventHandler(this.UserControlMonths_MouseHover);
             this.ResumeLayout(false);
 
         }
