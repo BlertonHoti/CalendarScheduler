@@ -345,12 +345,13 @@ namespace CountDown
             using (SqlConnection connection = new SqlConnection(conString))
             {
                 DateTime now = DateTime.Now;
+                string fullDateTemp = now.Year + "-" + now.Month + "-" + "1";
+                
                 connection.Open();
-                int thresholdMonth = now.Month;
-                string query = "SELECT Id, date FROM tbl_calendar WHERE MONTH(date) < @thresholdMonth";
+                string query = "SELECT Id, date FROM tbl_calendar WHERE date < @fullDateTemp";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@thresholdMonth", thresholdMonth);
+                    command.Parameters.AddWithValue("@fullDateTemp", DateTime.Parse(fullDateTemp));
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
                         try
