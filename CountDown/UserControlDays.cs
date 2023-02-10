@@ -14,7 +14,7 @@ using Guna.UI2.AnimatorNS;
 namespace CountDown
 {
     public partial class UserControlDays : UserControl
-    {  
+    {
         public static string static_day;
         public static int counter;
         private SqlConnection Con;
@@ -34,7 +34,6 @@ namespace CountDown
         private void UserControlDays_Load(object sender, EventArgs e)
         {
             displayEvent(lbDays.Text);
-
             
             if(int.Parse(lbDays.Text) == now.Day && Form1.static_month == now.Month && Form1.static_year == now.Year)
             {

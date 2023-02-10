@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -75,8 +76,32 @@ namespace CountDown
 
         private void Event_Load(object sender, EventArgs e)
         {
-            
+            EventTime();
         }
-        
+        public void EventTime()
+        {
+            DateTime now = DateTime.Now;
+
+            DateTime FutureEvent = new DateTime(Form1.static_year, Form1.static_month, int.Parse(UserControlDays.static_day));
+            TimeSpan DiferenceTime = FutureEvent - now;
+            if(DiferenceTime.Days <= 0)
+            {
+                if(DiferenceTime.Days < 0)
+                {
+                    Form1.instance.TimeLeft.Text = "Over";
+                    Form1.instance.TimeLeft.ForeColor = Color.Red;
+                }
+                else if(DiferenceTime.Days == 0)
+                {
+                    Form1.instance.TimeLeft.Text = "Today";
+                    Form1.instance.TimeLeft.ForeColor = Color.Orange;
+                }
+            }
+            else
+            {
+                Form1.instance.TimeLeft.Text = DiferenceTime.Days.ToString() + " Days Left";
+                Form1.instance.TimeLeft.ForeColor = Color.Green;
+            }
+        }
     }
 }

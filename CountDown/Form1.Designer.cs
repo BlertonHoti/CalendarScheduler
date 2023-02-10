@@ -54,12 +54,12 @@
             this.SelectedEvents = new System.Windows.Forms.Panel();
             this.DelEventBtn = new System.Windows.Forms.Button();
             this.EditEventBtn = new System.Windows.Forms.Button();
-            this.EventNameLbl = new System.Windows.Forms.Label();
             this.EventSelected = new System.Windows.Forms.Label();
             this.EventContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.label9 = new System.Windows.Forms.Label();
             this.RadiusEventContainer = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.LogoContainerRadius = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.DaysLeftLbl = new System.Windows.Forms.Label();
             this.CalculatorContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nextBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.previousBtn)).BeginInit();
@@ -319,9 +319,9 @@
             // SelectedEvents
             // 
             this.SelectedEvents.BackColor = System.Drawing.Color.White;
+            this.SelectedEvents.Controls.Add(this.DaysLeftLbl);
             this.SelectedEvents.Controls.Add(this.DelEventBtn);
             this.SelectedEvents.Controls.Add(this.EditEventBtn);
-            this.SelectedEvents.Controls.Add(this.EventNameLbl);
             this.SelectedEvents.Controls.Add(this.EventSelected);
             this.SelectedEvents.Controls.Add(this.EventContainer);
             this.SelectedEvents.Controls.Add(this.label9);
@@ -353,25 +353,14 @@
             this.EditEventBtn.UseVisualStyleBackColor = true;
             this.EditEventBtn.Click += new System.EventHandler(this.EditEventBtn_Click);
             // 
-            // EventNameLbl
-            // 
-            this.EventNameLbl.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.EventNameLbl.ForeColor = System.Drawing.Color.Teal;
-            this.EventNameLbl.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.EventNameLbl.Location = new System.Drawing.Point(17, 31);
-            this.EventNameLbl.Name = "EventNameLbl";
-            this.EventNameLbl.Size = new System.Drawing.Size(127, 21);
-            this.EventNameLbl.TabIndex = 4;
-            this.EventNameLbl.Text = "Event Name";
-            this.EventNameLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // EventSelected
             // 
-            this.EventSelected.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.EventSelected.BackColor = System.Drawing.Color.Transparent;
+            this.EventSelected.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EventSelected.ForeColor = System.Drawing.Color.Teal;
-            this.EventSelected.Location = new System.Drawing.Point(152, 31);
+            this.EventSelected.Location = new System.Drawing.Point(7, 36);
             this.EventSelected.Name = "EventSelected";
-            this.EventSelected.Size = new System.Drawing.Size(131, 21);
+            this.EventSelected.Size = new System.Drawing.Size(142, 21);
             this.EventSelected.TabIndex = 3;
             this.EventSelected.Text = "Date";
             this.EventSelected.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -389,10 +378,11 @@
             // 
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Teal;
-            this.label9.Location = new System.Drawing.Point(128, 0);
+            this.label9.Location = new System.Drawing.Point(120, 2);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(55, 21);
+            this.label9.Size = new System.Drawing.Size(60, 21);
             this.label9.TabIndex = 0;
             this.label9.Text = "Events";
             // 
@@ -405,6 +395,18 @@
             // 
             this.LogoContainerRadius.BorderRadius = 12;
             this.LogoContainerRadius.TargetControl = this.LogoContainer;
+            // 
+            // DaysLeftLbl
+            // 
+            this.DaysLeftLbl.BackColor = System.Drawing.Color.Transparent;
+            this.DaysLeftLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DaysLeftLbl.ForeColor = System.Drawing.Color.Teal;
+            this.DaysLeftLbl.Location = new System.Drawing.Point(155, 37);
+            this.DaysLeftLbl.Name = "DaysLeftLbl";
+            this.DaysLeftLbl.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.DaysLeftLbl.Size = new System.Drawing.Size(139, 21);
+            this.DaysLeftLbl.TabIndex = 7;
+            this.DaysLeftLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Form1
             // 
@@ -464,7 +466,6 @@
         private System.Windows.Forms.FlowLayoutPanel EventContainer;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label EventSelected;
-        private System.Windows.Forms.Label EventNameLbl;
         private System.Windows.Forms.Button DelEventBtn;
         private System.Windows.Forms.Button EditEventBtn;
         private Guna.UI2.WinForms.Guna2Elipse RadiusEventContainer;
@@ -472,6 +473,7 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label DaysLeftLbl;
     }
 }
 

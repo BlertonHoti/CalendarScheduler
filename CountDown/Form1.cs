@@ -42,7 +42,11 @@ namespace CountDown
             get { return EventSelected; }
             set { EventSelected = value; }
         }
-        
+        public Label TimeLeft
+        {
+            get { return DaysLeftLbl; }
+            set { DaysLeftLbl = value; }
+        }
 
         private SqlConnection Con;
         private SqlCommand Command;
@@ -87,6 +91,31 @@ namespace CountDown
                 UserControlDays ucDays = new UserControlDays();
                 ucDays.days(i);
                 dayContainer.Controls.Add(ucDays);
+            }
+        }
+        public void EventTime()
+        {
+            DateTime now = DateTime.Now;
+
+            DateTime FutureEvent = new DateTime(Form1.static_year, Form1.static_month, int.Parse(UserControlDays.static_day));
+            TimeSpan DiferenceTime = FutureEvent - now;
+            if (DiferenceTime.Days <= 0)
+            {
+                if (DiferenceTime.Days < 0)
+                {
+                    DaysLeftLbl.Text = "Over";
+                    DaysLeftLbl.ForeColor = Color.Red;
+                }
+                else if (DiferenceTime.Days == 0)
+                {
+                    DaysLeftLbl.Text = "Today";
+                    DaysLeftLbl.ForeColor = Color.Yellow;
+                }
+            }
+            else
+            {
+                DaysLeftLbl.Text = DiferenceTime.Days.ToString() + "Days Left";
+                DaysLeftLbl.ForeColor = Color.LightGreen;
             }
         }
         public void DisplayCostumDays(int monthTemp, int yearTemp)

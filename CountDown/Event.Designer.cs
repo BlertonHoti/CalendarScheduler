@@ -41,18 +41,19 @@
             this.EventName.ForeColor = System.Drawing.Color.White;
             this.EventName.Location = new System.Drawing.Point(0, 0);
             this.EventName.Name = "EventName";
-            this.EventName.Size = new System.Drawing.Size(78, 37);
+            this.EventName.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.EventName.Size = new System.Drawing.Size(83, 37);
             this.EventName.TabIndex = 0;
-            this.EventName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.EventName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.EventName.Click += new System.EventHandler(this.EventName_Click);
             this.EventName.Leave += new System.EventHandler(this.EventName_Leave);
             // 
             // TimeLbl
             // 
             this.TimeLbl.ForeColor = System.Drawing.Color.White;
-            this.TimeLbl.Location = new System.Drawing.Point(84, 0);
+            this.TimeLbl.Location = new System.Drawing.Point(89, 0);
             this.TimeLbl.Name = "TimeLbl";
-            this.TimeLbl.Size = new System.Drawing.Size(99, 37);
+            this.TimeLbl.Size = new System.Drawing.Size(94, 37);
             this.TimeLbl.TabIndex = 1;
             this.TimeLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.TimeLbl.Click += new System.EventHandler(this.TimeLbl_Click);
@@ -65,7 +66,7 @@
             // 
             // SelectDesign
             // 
-            this.SelectDesign.Location = new System.Drawing.Point(-5, 32);
+            this.SelectDesign.Location = new System.Drawing.Point(-5, 33);
             this.SelectDesign.Name = "SelectDesign";
             this.SelectDesign.Size = new System.Drawing.Size(187, 10);
             this.SelectDesign.TabIndex = 2;
