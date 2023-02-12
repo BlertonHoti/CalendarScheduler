@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -99,7 +100,34 @@ namespace CountDown
             }
             else
             {
-                Form1.instance.TimeLeft.Text = DiferenceTime.Days.ToString() + " Days Left";
+                if(DiferenceTime.Days >= 93 && DiferenceTime.Days < 186)
+                {
+                    Form1.instance.TimeLeft.Text = "3+ months Left";
+                }
+                else if(DiferenceTime.Days >= 186 && DiferenceTime.Days < 365)
+                {
+                    Form1.instance.TimeLeft.Text = "6+ months Left";
+                }
+                else if(DiferenceTime.Days >= 365 && DiferenceTime.Days < 1825)
+                {
+                    Form1.instance.TimeLeft.Text = "1+ years Left";
+                }
+                else if (DiferenceTime.Days >= 1825 && DiferenceTime.Days < 3650)
+                {
+                    Form1.instance.TimeLeft.Text = "5+ years Left";
+                }
+                else if (DiferenceTime.Days >= 3650 && DiferenceTime.Days < 36500)
+                {
+                    Form1.instance.TimeLeft.Text = "10+ years Left";
+                }
+                else if (DiferenceTime.Days >= 36500)
+                {
+                    Form1.instance.TimeLeft.Text = "100+ years Left";
+                }
+                else
+                {
+                    Form1.instance.TimeLeft.Text = DiferenceTime.Days + " Days left";
+                }
                 Form1.instance.TimeLeft.ForeColor = Color.Green;
             }
         }
