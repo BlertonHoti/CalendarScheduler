@@ -65,6 +65,10 @@ namespace CountDown
             DisplayDays();
             obj = this;
             AutoDataDelete();
+            DateTime now = DateTime.Now;
+            UserControlDays.static_day = now.Day.ToString();
+            UserControlDays load = new UserControlDays();
+            load.ShowEvent();
         }
         public void DisplayDays()
         {

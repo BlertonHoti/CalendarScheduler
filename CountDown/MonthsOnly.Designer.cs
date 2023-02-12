@@ -36,10 +36,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.DelEventBtn = new System.Windows.Forms.Button();
             this.EditEventBtn = new System.Windows.Forms.Button();
-            this.EventNameLbl = new System.Windows.Forms.Label();
-            this.EventSelected = new System.Windows.Forms.Label();
             this.EventContainer = new System.Windows.Forms.FlowLayoutPanel();
-            this.label9 = new System.Windows.Forms.Label();
             this.SelectedEvents = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -53,6 +50,8 @@
             this.MonthContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.lblDate = new System.Windows.Forms.Label();
             this.RadiusEventContainer = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.EventSelected = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.LogoContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SelectedEvents.SuspendLayout();
@@ -122,29 +121,6 @@
             this.EditEventBtn.Text = "Edit";
             this.EditEventBtn.UseVisualStyleBackColor = true;
             // 
-            // EventNameLbl
-            // 
-            this.EventNameLbl.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.EventNameLbl.ForeColor = System.Drawing.Color.Teal;
-            this.EventNameLbl.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.EventNameLbl.Location = new System.Drawing.Point(17, 31);
-            this.EventNameLbl.Name = "EventNameLbl";
-            this.EventNameLbl.Size = new System.Drawing.Size(127, 21);
-            this.EventNameLbl.TabIndex = 4;
-            this.EventNameLbl.Text = "Event Name";
-            this.EventNameLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // EventSelected
-            // 
-            this.EventSelected.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.EventSelected.ForeColor = System.Drawing.Color.Teal;
-            this.EventSelected.Location = new System.Drawing.Point(152, 31);
-            this.EventSelected.Name = "EventSelected";
-            this.EventSelected.Size = new System.Drawing.Size(131, 21);
-            this.EventSelected.TabIndex = 3;
-            this.EventSelected.Text = "Date";
-            this.EventSelected.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // EventContainer
             // 
             this.EventContainer.AutoScroll = true;
@@ -154,26 +130,14 @@
             this.EventContainer.Size = new System.Drawing.Size(283, 259);
             this.EventContainer.TabIndex = 2;
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.label9.ForeColor = System.Drawing.Color.Teal;
-            this.label9.Location = new System.Drawing.Point(128, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(55, 21);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "Events";
-            // 
             // SelectedEvents
             // 
             this.SelectedEvents.BackColor = System.Drawing.Color.White;
+            this.SelectedEvents.Controls.Add(this.EventSelected);
+            this.SelectedEvents.Controls.Add(this.label9);
             this.SelectedEvents.Controls.Add(this.DelEventBtn);
             this.SelectedEvents.Controls.Add(this.EditEventBtn);
-            this.SelectedEvents.Controls.Add(this.EventNameLbl);
-            this.SelectedEvents.Controls.Add(this.EventSelected);
             this.SelectedEvents.Controls.Add(this.EventContainer);
-            this.SelectedEvents.Controls.Add(this.label9);
             this.SelectedEvents.Location = new System.Drawing.Point(15, 213);
             this.SelectedEvents.Name = "SelectedEvents";
             this.SelectedEvents.Size = new System.Drawing.Size(304, 363);
@@ -299,6 +263,30 @@
             this.RadiusEventContainer.BorderRadius = 12;
             this.RadiusEventContainer.TargetControl = this.SelectedEvents;
             // 
+            // EventSelected
+            // 
+            this.EventSelected.BackColor = System.Drawing.Color.Transparent;
+            this.EventSelected.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EventSelected.ForeColor = System.Drawing.Color.Teal;
+            this.EventSelected.Location = new System.Drawing.Point(7, 34);
+            this.EventSelected.Name = "EventSelected";
+            this.EventSelected.Size = new System.Drawing.Size(142, 21);
+            this.EventSelected.TabIndex = 8;
+            this.EventSelected.Text = "Date";
+            this.EventSelected.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.Teal;
+            this.label9.Location = new System.Drawing.Point(120, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(60, 21);
+            this.label9.TabIndex = 7;
+            this.label9.Text = "Events";
+            // 
             // MonthsOnly
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -341,10 +329,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button DelEventBtn;
         private System.Windows.Forms.Button EditEventBtn;
-        private System.Windows.Forms.Label EventNameLbl;
-        private System.Windows.Forms.Label EventSelected;
         private System.Windows.Forms.FlowLayoutPanel EventContainer;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel SelectedEvents;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label10;
@@ -358,5 +343,7 @@
         private System.Windows.Forms.FlowLayoutPanel MonthContainer;
         private System.Windows.Forms.Label lblDate;
         private Guna.UI2.WinForms.Guna2Elipse RadiusEventContainer;
+        private System.Windows.Forms.Label EventSelected;
+        private System.Windows.Forms.Label label9;
     }
 }

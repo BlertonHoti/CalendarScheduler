@@ -55,6 +55,7 @@ namespace CountDown
             EventFrom eventform = new EventFrom();
             eventform.Show();
             timer1.Start();
+            Event.getEventName = "";
         }
         public void displayEvent(string days)
         {
@@ -108,6 +109,7 @@ namespace CountDown
             {
                 timer1.Start();
             }
+            Event.getEventName = "";
             ShowEvent();
 
         }

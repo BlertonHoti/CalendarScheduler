@@ -88,12 +88,12 @@ namespace CountDown
             {
                 if(DiferenceTime.Days < 0)
                 {
-                    Form1.instance.TimeLeft.Text = "Over";
+                    Form1.instance.TimeLeft.Text = "To late!";
                     Form1.instance.TimeLeft.ForeColor = Color.Red;
                 }
                 else if(DiferenceTime.Days == 0)
                 {
-                    Form1.instance.TimeLeft.Text = "Today";
+                    Form1.instance.TimeLeft.Text = "Today!";
                     Form1.instance.TimeLeft.ForeColor = Color.Orange;
                 }
             }
