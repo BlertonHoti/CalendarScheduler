@@ -81,7 +81,7 @@ namespace CountDown
         }
         public void EventTime()
         {
-            DateTime now = DateTime.Now.Date;
+            DateTime now = DateTime.Now.Date
 
             DateTime FutureEvent = new DateTime(frmMDI.static_year, frmMDI.static_month, int.Parse(UserControlDays.static_day)).Date;
             TimeSpan DiferenceTime = FutureEvent - now;
