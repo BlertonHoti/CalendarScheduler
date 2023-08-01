@@ -27,7 +27,7 @@ namespace CountDown
 
         private void EventFrom_Load(object sender, EventArgs e)
         {
-            dateTxt.Text = Form1.static_year + "-" + Form1.static_month + "-" + UserControlDays.static_day;
+            dateTxt.Text = frmMDI.static_year + "-" + frmMDI.static_month + "-" + UserControlDays.static_day;
             StartingTime.SelectedIndex = 0;
             AmOrPm.SelectedIndex = 0;
             UpdateCombobox();

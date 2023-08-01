@@ -67,7 +67,7 @@ namespace CountDown
 
         private void lblDate_Click(object sender, EventArgs e)
         {
-            Form1 form1 = new Form1();
+            frmMDI form1 = new frmMDI();
             form1.Show();
             this.Close();
         }

@@ -74,11 +74,11 @@
     <Compile Include="EventFrom.Designer.cs">
       <DependentUpon>EventFrom.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="frmMDI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="frmMDI.Designer.cs">
+      <DependentUpon>frmMDI.cs</DependentUpon>
     </Compile>
     <Compile Include="MonthsOnly.cs">
       <SubType>Form</SubType>
@@ -115,8 +115,8 @@
     <EmbeddedResource Include="EventFrom.resx">
       <DependentUpon>EventFrom.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="frmMDI.resx">
+      <DependentUpon>frmMDI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MonthsOnly.resx">
       <DependentUpon>MonthsOnly.cs</DependentUpon>

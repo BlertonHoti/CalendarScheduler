@@ -21,21 +21,21 @@ namespace CountDown
         private SqlCommand Command;
         string conString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\blert\\OneDrive\\Documents\\db_calendar.mdf;Integrated Security=True;Connect Timeout=30";
 
-        Form1 formTemp;
+        frmMDI formTemp;
         ToolTip t1 = new ToolTip();
 
         DateTime now = DateTime.Now;
         public UserControlDays()
         {
             InitializeComponent();
-            formTemp = new Form1();
+            formTemp = new frmMDI();
         }
 
         private void UserControlDays_Load(object sender, EventArgs e)
         {
             displayEvent(lbDays.Text);
             
-            if(int.Parse(lbDays.Text) == now.Day && Form1.static_month == now.Month && Form1.static_year == now.Year)
+            if(int.Parse(lbDays.Text) == now.Day && frmMDI.static_month == now.Month && frmMDI.static_year == now.Year)
             {
                 this.BorderStyle = BorderStyle.FixedSingle;
                 this.BackColor = Color.Teal;
@@ -65,7 +65,7 @@ namespace CountDown
             string Query = "SELECT * FROM tbl_calendar where date = @date";
             Command = Con.CreateCommand();
             Command.CommandText = Query;
-            Command.Parameters.AddWithValue("@date", (Form1.static_year + "-" + Form1.static_month + "-" + days).ToString());
+            Command.Parameters.AddWithValue("@date", (frmMDI.static_year + "-" + frmMDI.static_month + "-" + days).ToString());
             SqlDataReader reader = Command.ExecuteReader();
             while(reader.Read())    
             {
@@ -120,9 +120,9 @@ namespace CountDown
             string Query = "SELECT * FROM tbl_calendar where date = @date";
             Command = Con.CreateCommand();
             Command.CommandText = Query;
-            Command.Parameters.AddWithValue("@date", (Form1.static_year + "-" + Form1.static_month + "-" + UserControlDays.static_day));
+            Command.Parameters.AddWithValue("@date", (frmMDI.static_year + "-" + frmMDI.static_month + "-" + UserControlDays.static_day));
             SqlDataReader reader = Command.ExecuteReader();
-            Form1.instance.eventsHold.Controls.Clear();
+            frmMDI.instance.eventsHold.Controls.Clear();
             while (reader.Read())
             {
                 Event events = new Event();
@@ -130,24 +130,24 @@ namespace CountDown
                 string Time = "From: " + reader["StartingTime"].ToString() + "" + reader["AmOrPmTime"].ToString() + " \nTo: " + reader["EndingTime"].ToString();
                 events.SetEventName(Name);
                 events.SetEventTime(Time);
-                Form1.instance.eventsHold.Controls.Add(events);
-                int tempMonth = Form1.static_month;
+                frmMDI.instance.eventsHold.Controls.Add(events);
+                int tempMonth = frmMDI.static_month;
                 int tempDay = int.Parse(static_day);
                 if(tempMonth < 10 && tempDay < 10)
                 {
-                    Form1.instance.eventselect.Text = ("0" + static_day + " : 0" + Form1.static_month + " : " + Form1.static_year).ToString();
+                    frmMDI.instance.eventselect.Text = ("0" + static_day + " : 0" + frmMDI.static_month + " : " + frmMDI.static_year).ToString();
                 }
                 else if(tempMonth < 10)
                 {
-                    Form1.instance.eventselect.Text = (static_day + " : 0" + Form1.static_month + " : " + Form1.static_year).ToString();
+                    frmMDI.instance.eventselect.Text = (static_day + " : 0" + frmMDI.static_month + " : " + frmMDI.static_year).ToString();
                 }
                 else if(tempDay < 10)
                 {
-                    Form1.instance.eventselect.Text = ("0" + static_day + " : " + Form1.static_month + " : " + Form1.static_year).ToString();
+                    frmMDI.instance.eventselect.Text = ("0" + static_day + " : " + frmMDI.static_month + " : " + frmMDI.static_year).ToString();
                 }
                 else
                 {
-                    Form1.instance.eventselect.Text = (static_day + " : " + Form1.static_month + " : " + Form1.static_year).ToString();
+                    frmMDI.instance.eventselect.Text = (static_day + " : " + frmMDI.static_month + " : " + frmMDI.static_year).ToString();
                 }
                 
             }
@@ -162,7 +162,7 @@ namespace CountDown
             {
                 t1.Show("Show Events", lblEvent);
                 lblEvent.Font = new Font(lblEvent.Font.Name, lblEvent.Font.Size + 6);
-                if (int.Parse(this.lbDays.Text) == now.Day && Form1.static_month == now.Month && Form1.static_year == now.Year)
+                if (int.Parse(this.lbDays.Text) == now.Day && frmMDI.static_month == now.Month && frmMDI.static_year == now.Year)
                 {
                     lblEvent.ForeColor = Color.Aqua;
                 }
@@ -183,7 +183,7 @@ namespace CountDown
         {
             if(lblEvent.Text != "")
             {
-                if (int.Parse(this.lbDays.Text) == now.Day && Form1.static_month == now.Month && Form1.static_year == now.Year)
+                if (int.Parse(this.lbDays.Text) == now.Day && frmMDI.static_month == now.Month && frmMDI.static_year == now.Year)
                 {
                     this.lblEvent.ForeColor = Color.Aqua;
                     lblEvent.Font = new Font(lblEvent.Font.Name, 12);
@@ -197,7 +197,7 @@ namespace CountDown
             }
             else
             {
-                if (int.Parse(this.lbDays.Text) == now.Day && Form1.static_month == now.Month && Form1.static_year == now.Year)
+                if (int.Parse(this.lbDays.Text) == now.Day && frmMDI.static_month == now.Month && frmMDI.static_year == now.Year)
                 {
                     this.BackColor = Color.Teal;
                     this.lbDays.ForeColor = Color.White;
@@ -223,7 +223,7 @@ namespace CountDown
 
         private void UserControlDays_MouseLeave(object sender, EventArgs e)
         {
-            if (int.Parse(this.lbDays.Text) == now.Day && Form1.static_month == now.Month && Form1.static_year == now.Year)
+            if (int.Parse(this.lbDays.Text) == now.Day && frmMDI.static_month == now.Month && frmMDI.static_year == now.Year)
             {
                 this.BackColor = Color.Teal;
                 this.lbDays.ForeColor = Color.White;

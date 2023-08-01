@@ -30,7 +30,7 @@ namespace CountDown
             int Theyear = MonthsOnly.static_year;
 
             this.Parent.Parent.Parent.Hide();
-            Form1 frm = new Form1();  
+            frmMDI frm = new frmMDI();  
             frm.Show();
             frm.DisplayCostumDays(TheMonth, Theyear);
         }
@@ -54,7 +54,7 @@ namespace CountDown
             int Theyear = MonthsOnly.static_year;
 
             this.Parent.Parent.Parent.Hide();
-            Form1 frm = new Form1();
+            frmMDI frm = new frmMDI();
             frm.Show();
             frm.DisplayCostumDays(TheMonth, Theyear);
         }

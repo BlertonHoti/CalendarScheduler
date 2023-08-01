@@ -81,54 +81,54 @@ namespace CountDown
         }
         public void EventTime()
         {
-            DateTime now = DateTime.Now;
+            DateTime now = DateTime.Now.Date;
 
-            DateTime FutureEvent = new DateTime(Form1.static_year, Form1.static_month, int.Parse(UserControlDays.static_day));
+            DateTime FutureEvent = new DateTime(frmMDI.static_year, frmMDI.static_month, int.Parse(UserControlDays.static_day)).Date;
             TimeSpan DiferenceTime = FutureEvent - now;
             if(DiferenceTime.Days <= 0)
             {
                 if(DiferenceTime.Days < 0)
                 {
-                    Form1.instance.TimeLeft.Text = "To late!";
-                    Form1.instance.TimeLeft.ForeColor = Color.Red;
+                    frmMDI.instance.TimeLeft.Text = "To late!";
+                    frmMDI.instance.TimeLeft.ForeColor = Color.Red;
                 }
                 else if(DiferenceTime.Days == 0)
                 {
-                    Form1.instance.TimeLeft.Text = "Today!";
-                    Form1.instance.TimeLeft.ForeColor = Color.Orange;
+                    frmMDI.instance.TimeLeft.Text = "Today!";
+                    frmMDI.instance.TimeLeft.ForeColor = Color.Orange;
                 }
             }
             else
             {
                 if(DiferenceTime.Days >= 93 && DiferenceTime.Days < 186)
                 {
-                    Form1.instance.TimeLeft.Text = "3+ months Left";
+                    frmMDI.instance.TimeLeft.Text = "3+ months Left";
                 }
                 else if(DiferenceTime.Days >= 186 && DiferenceTime.Days < 365)
                 {
-                    Form1.instance.TimeLeft.Text = "6+ months Left";
+                    frmMDI.instance.TimeLeft.Text = "6+ months Left";
                 }
                 else if(DiferenceTime.Days >= 365 && DiferenceTime.Days < 1825)
                 {
-                    Form1.instance.TimeLeft.Text = "1+ years Left";
+                    frmMDI.instance.TimeLeft.Text = "1+ years Left";
                 }
                 else if (DiferenceTime.Days >= 1825 && DiferenceTime.Days < 3650)
                 {
-                    Form1.instance.TimeLeft.Text = "5+ years Left";
+                    frmMDI.instance.TimeLeft.Text = "5+ years Left";
                 }
                 else if (DiferenceTime.Days >= 3650 && DiferenceTime.Days < 36500)
                 {
-                    Form1.instance.TimeLeft.Text = "10+ years Left";
+                    frmMDI.instance.TimeLeft.Text = "10+ years Left";
                 }
                 else if (DiferenceTime.Days >= 36500)
                 {
-                    Form1.instance.TimeLeft.Text = "100+ years Left";
+                    frmMDI.instance.TimeLeft.Text = "100+ years Left";
                 }
                 else
                 {
-                    Form1.instance.TimeLeft.Text = DiferenceTime.Days + " Days left";
+                    frmMDI.instance.TimeLeft.Text = DiferenceTime.Days + " Days left";
                 }
-                Form1.instance.TimeLeft.ForeColor = Color.Green;
+                frmMDI.instance.TimeLeft.ForeColor = Color.Green;
             }
         }
     }

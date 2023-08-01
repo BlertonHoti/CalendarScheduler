@@ -15,19 +15,19 @@ using System.Windows.Forms;
 
 namespace CountDown
 {
-    public partial class Form1 : Form
+    public partial class frmMDI : Form
     {
         bool mouseDown;
         private Point Offset;
 
-        static Form1 obj;
-        public static Form1 instance
+        static frmMDI obj;
+        public static frmMDI instance
         {
             get
             {
                 if(obj == null)
                 {
-                    obj = new Form1();
+                    obj = new frmMDI();
                 }
                 return obj;
             }
@@ -54,7 +54,7 @@ namespace CountDown
 
         int month, year;
         public static int static_month, static_year;
-        public Form1()
+        public frmMDI()
         {
             InitializeComponent();
             
@@ -101,7 +101,7 @@ namespace CountDown
         {
             DateTime now = DateTime.Now;
 
-            DateTime FutureEvent = new DateTime(Form1.static_year, Form1.static_month, int.Parse(UserControlDays.static_day));
+            DateTime FutureEvent = new DateTime(frmMDI.static_year, frmMDI.static_month, int.Parse(UserControlDays.static_day));
             TimeSpan DiferenceTime = FutureEvent - now;
             if (DiferenceTime.Days <= 0)
             {
@@ -222,7 +222,7 @@ namespace CountDown
             }
             catch (Exception ex)
             {
-                Form1 theForm = new Form1();
+                frmMDI theForm = new frmMDI();
                 this.Hide();
                 theForm.Show();
                 MessageBox.Show(ex.ToString());
@@ -379,8 +379,9 @@ namespace CountDown
             {
                 DateTime now = DateTime.Now;
                 string fullDateTemp = now.Year + "-" + now.Month + "-" + "1";
-                
+
                 connection.Open();
+                
                 string query = "SELECT Id, date FROM tbl_calendar WHERE date < @fullDateTemp";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {

@@ -41,11 +41,11 @@ namespace CountDown
                 Command.CommandText = Query;
                 Command.Parameters.AddWithValue("@event", Event.getEventName);
                 SqlDataReader reader = Command.ExecuteReader();
-                Form1.instance.eventsHold.Controls.Clear();
+                frmMDI.instance.eventsHold.Controls.Clear();
                 while (reader.Read())
                 {
                     string TempEvent = reader["event"].ToString();
-                    string TempDate = Form1.static_year + "-" + Form1.static_month + "-" + UserControlDays.static_day;
+                    string TempDate = frmMDI.static_year + "-" + frmMDI.static_month + "-" + UserControlDays.static_day;
                     int TempStartingTime = StartingTime.Items.IndexOf(reader["StartingTime"].ToString());
                     int TempAmOrPmTime = AmOrPm.Items.IndexOf(reader["AmOrPmTime"].ToString());
                     int TempEndingTime = EndingTime.Items.IndexOf(reader["EndingTime"].ToString());
